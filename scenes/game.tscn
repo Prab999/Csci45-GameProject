@@ -75,10 +75,6 @@ texture = ExtResource("2_4king")
 8:15/0 = 0
 2:10/size_in_atlas = Vector2i(2, 2)
 2:10/0 = 0
-9:0/size_in_atlas = Vector2i(3, 4)
-9:0/0 = 0
-10:4/size_in_atlas = Vector2i(2, 6)
-10:4/0 = 0
 12:4/size_in_atlas = Vector2i(1, 2)
 12:4/0 = 0
 8:4/size_in_atlas = Vector2i(2, 2)
@@ -165,6 +161,10 @@ texture = ExtResource("2_4king")
 19:19/0 = 0
 20:22/size_in_atlas = Vector2i(2, 2)
 20:22/0 = 0
+10:4/size_in_atlas = Vector2i(2, 6)
+10:4/0 = 0
+9:0/size_in_atlas = Vector2i(3, 4)
+9:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5apvq"]
 sources/2 = SubResource("TileSetAtlasSource_p4vh6")
@@ -172,12 +172,13 @@ sources/2 = SubResource("TileSetAtlasSource_p4vh6")
 [node name="Game" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_fy85f")]
-position = Vector2(16, -20)
+position = Vector2(28, -50)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(17, -36)
+position = Vector2(12, -23)
 zoom = Vector2(4, 4)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5apvq")
 format = 2
+layer_0/tile_data = PackedInt32Array(131069, 2, 0, 65537, 2, 0, -65531, 327682, 0, -131065, 327682, 0, 65551, 2, 17, 18, 393218, 18, 12, 393218, 18, 65545, 2, 17, -65527, 2, 0, 65557, 2, 17, 65553, 393218, 20, 65554, 393218, 20, 65555, 393218, 20, 131091, 393218, 20, 131090, 393218, 20, 131089, 393218, 20, 65547, 458754, 20, 65548, 458754, 20, 65549, 458754, 20, 131085, 458754, 20, 131084, 458754, 20, 131083, 458754, 20, 196619, 458754, 20, 196620, 458754, 20, 196621, 458754, 20, 65560, 2, 17, -131049, 327682, 21, -65510, 393218, 10, 65562, 393218, 10, 196634, 393218, 10, -65507, 2, 0, -65503, 2, 0, 15, 393218, 10, 21, 393218, 10)
