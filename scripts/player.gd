@@ -34,6 +34,8 @@ func handle_movement_animation(direction):
 		if velocity:
 			animated_sprite.play("run")
 			toggle_flip_sprite(direction)
+	elif !is_on_floor():
+		animated_sprite.play("fall")
 		
 func toggle_flip_sprite(direction):
 	if direction == 1:
