@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlfxg082nilpv"]
+[gd_scene load_steps=18 format=3 uid="uid://dlfxg082nilpv"]
 
 [ext_resource type="PackedScene" uid="uid://vtb0ph2qh8rh" path="res://scenes/player.tscn" id="1_fy85f"]
 [ext_resource type="Texture2D" uid="uid://xpy4w0mw1pej" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_4king"]
 [ext_resource type="Texture2D" uid="uid://we0y42mx2dc5" path="res://assets/graveyard/Tiles.png" id="2_fltcu"]
+[ext_resource type="PackedScene" uid="uid://dbocm066iksnx" path="res://scenes/kill_zone.tscn" id="2_uem42"]
 [ext_resource type="Texture2D" uid="uid://cmxdn4oicfnhc" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="4_vehki"]
 [ext_resource type="PackedScene" uid="uid://cgbf40218lwmk" path="res://scenes/platform_default.tscn" id="5_j54cv"]
 
@@ -406,6 +407,8 @@ _data = {
 "up&down": SubResource("Animation_603b4")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4w4gj"]
+
 [node name="Game" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_fy85f")]
@@ -414,15 +417,17 @@ position = Vector2(28, -50)
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-4, 0)
 zoom = Vector2(4, 4)
+limit_bottom = 80
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5apvq")
 format = 2
-layer_0/tile_data = PackedInt32Array(131069, 2, 0, 65537, 2, 0, 65551, 2, 17, 18, 393218, 18, 12, 393218, 18, 65545, 2, 17, -65527, 2, 0, 65557, 2, 17, 65553, 393218, 20, 65554, 393218, 20, 65555, 393218, 20, 131091, 393218, 20, 131090, 393218, 20, 131089, 393218, 20, 65547, 458754, 20, 65548, 458754, 20, 65549, 458754, 20, 131085, 458754, 20, 131084, 458754, 20, 131083, 458754, 20, 196619, 458754, 20, 196620, 458754, 20, 196621, 458754, 20, 65560, 2, 17, -131049, 327682, 21, -65510, 393218, 10, 65562, 393218, 10, 196634, 393218, 10, 15, 393218, 10, 21, 393218, 10, -65507, 2, 0, -65504, 2, 0, -65501, 2, 0, -65498, 2, 0, -65532, 327682, 0, -131066, 327682, 0, -65528, 2, 0, -720842, 131073, 1, -786394, 262145, 15, -655321, 655361, 18, -524249, 655361, 18, -327641, 1048577, 1, -786404, 262145, 15, -262115, 1048577, 1, -327648, 655362, 10, -655331, 655361, 18)
+layer_0/tile_data = PackedInt32Array(131069, 2, 0, 65537, 2, 0, 65551, 2, 17, 18, 393218, 18, 12, 393218, 18, 65545, 2, 17, -65527, 2, 0, 65557, 2, 17, 65553, 393218, 20, 65554, 393218, 20, 65555, 393218, 20, 131091, 393218, 20, 131090, 393218, 20, 131089, 393218, 20, 65547, 458754, 20, 65548, 458754, 20, 65549, 458754, 20, 131085, 458754, 20, 131084, 458754, 20, 131083, 458754, 20, 196619, 458754, 20, 196620, 458754, 20, 196621, 458754, 20, 65560, 2, 17, -131049, 327682, 21, -65510, 393218, 10, 65562, 393218, 10, 196634, 393218, 10, 15, 393218, 10, 21, 393218, 10, -65507, 2, 0, -65504, 2, 0, -65501, 2, 0, -65498, 2, 0, -65532, 327682, 0, -131066, 327682, 0, -65528, 2, 0, -786394, 262145, 15, -655321, 655361, 18, -524249, 655361, 18, -327641, 1048577, 1, -786404, 262145, 15, -655331, 655361, 18, -720842, 2, 0, -720839, 2, 0, -327651, 1048577, 1, -393184, 655362, 10)
 
 [node name="platform default" parent="." instance=ExtResource("5_j54cv")]
-position = Vector2(416, -75)
+position = Vector2(385, -76)
 
 [node name="platform default2" parent="." instance=ExtResource("5_j54cv")]
 position = Vector2(694, -175)
@@ -441,3 +446,9 @@ libraries = {
 "": SubResource("AnimationLibrary_4a3cq")
 }
 autoplay = "up&down"
+
+[node name="KillZone" parent="." instance=ExtResource("2_uem42")]
+position = Vector2(0, 93)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("WorldBoundaryShape2D_4w4gj")
