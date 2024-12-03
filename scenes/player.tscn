@@ -1,9 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://vtb0ph2qh8rh"]
+[gd_scene load_steps=57 format=3 uid="uid://vtb0ph2qh8rh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w0bat"]
 [ext_resource type="Texture2D" uid="uid://cqhaayc63nevy" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Idle.png" id="2_3hj8k"]
 [ext_resource type="Texture2D" uid="uid://b2he1816tu4tl" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Attack.png" id="2_t4fb4"]
 [ext_resource type="Texture2D" uid="uid://mcmgq1dk0oko" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Attack2.png" id="3_avkmr"]
+[ext_resource type="Texture2D" uid="uid://dp1043fba4j0a" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_CrouchAll.png" id="4_cxui5"]
 [ext_resource type="Texture2D" uid="uid://bntjqsdbnlw7e" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Death.png" id="4_hri0i"]
 [ext_resource type="Texture2D" uid="uid://bvby5ejbn1pjl" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Fall.png" id="5_6p62b"]
 [ext_resource type="Texture2D" uid="uid://be1ha5bsi82mj" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Run.png" id="7_nk17h"]
@@ -47,6 +48,18 @@ region = Rect2(480, 0, 120, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_60n8p"]
 atlas = ExtResource("3_avkmr")
 region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2xtd"]
+atlas = ExtResource("4_cxui5")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7rqr"]
+atlas = ExtResource("4_cxui5")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijsdy"]
+atlas = ExtResource("4_cxui5")
+region = Rect2(240, 0, 120, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gv084"]
 atlas = ExtResource("4_hri0i")
@@ -224,6 +237,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_s2xtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7rqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijsdy")
+}],
+"loop": false,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gv084")
 }, {
 "duration": 1.0,
@@ -352,7 +379,7 @@ script = ExtResource("1_w0bat")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -20)
 sprite_frames = SubResource("SpriteFrames_oyk45")
-animation = &"idle"
+animation = &"crouch"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
