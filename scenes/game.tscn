@@ -331,6 +331,21 @@ sources/2 = SubResource("TileSetAtlasSource_p4vh6")
 sources/1 = SubResource("TileSetAtlasSource_i32nc")
 sources/4 = SubResource("TileSetAtlasSource_ffdsl")
 
+[sub_resource type="Animation" id="Animation_fa3lg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(694, -175)]
+}
+
 [sub_resource type="Animation" id="Animation_2myfx"]
 resource_name = "move"
 length = 1.5
@@ -348,7 +363,13 @@ tracks/0/keys = {
 "values": [Vector2(694, -175), Vector2(804, -175)]
 }
 
-[sub_resource type="Animation" id="Animation_fa3lg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgclb"]
+_data = {
+"RESET": SubResource("Animation_fa3lg"),
+"move": SubResource("Animation_2myfx")
+}
+
+[sub_resource type="Animation" id="Animation_bv361"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -360,13 +381,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(694, -175)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgclb"]
-_data = {
-"RESET": SubResource("Animation_fa3lg"),
-"move": SubResource("Animation_2myfx")
+"values": [Vector2(540, -105)]
 }
 
 [sub_resource type="Animation" id="Animation_603b4"]
@@ -384,21 +399,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(540, -105), Vector2(538, -168)]
-}
-
-[sub_resource type="Animation" id="Animation_bv361"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(540, -105)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4a3cq"]
