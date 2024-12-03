@@ -374,6 +374,7 @@ radius = 8.0
 height = 34.0
 
 [node name="player" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_w0bat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
