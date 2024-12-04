@@ -50,8 +50,10 @@ func handle_movement_animation(direction):
 				animated_sprite.play("idle")
 		if velocity:
 			if is_crouching:
+				SPEED = 50
 				animated_sprite.play("crouch_walk")
 			else:
+				SPEED = 130
 				animated_sprite.play("run")
 			toggle_flip_sprite(direction)
 	elif !is_on_floor():
