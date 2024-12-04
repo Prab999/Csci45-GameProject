@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://xpy4w0mw1pej" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_4king"]
 [ext_resource type="Texture2D" uid="uid://we0y42mx2dc5" path="res://assets/graveyard/Tiles.png" id="2_fltcu"]
 [ext_resource type="Texture2D" uid="uid://7b24ay6022c3" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_ohpbn"]
-[ext_resource type="PackedScene" path="res://scenes/kill_zone.tscn" id="2_uem42"]
+[ext_resource type="PackedScene" uid="uid://dbocm066iksnx" path="res://scenes/kill_zone.tscn" id="2_uem42"]
 [ext_resource type="Texture2D" uid="uid://cmxdn4oicfnhc" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="4_vehki"]
-[ext_resource type="PackedScene" path="res://scenes/platform_default.tscn" id="5_j54cv"]
+[ext_resource type="PackedScene" uid="uid://cgbf40218lwmk" path="res://scenes/platform_default.tscn" id="5_j54cv"]
 [ext_resource type="Texture2D" uid="uid://cexrrcwqspw87" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="7_ndgqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8g65p"]
