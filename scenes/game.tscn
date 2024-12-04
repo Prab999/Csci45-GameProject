@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgbf40218lwmk" path="res://scenes/platform_default.tscn" id="5_j54cv"]
 [ext_resource type="Texture2D" uid="uid://cexrrcwqspw87" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="7_ndgqt"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinnc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8g65p"]
 texture = ExtResource("2_ohpbn")
 17:13/size_in_atlas = Vector2i(8, 10)
 17:13/0 = 0
@@ -114,7 +114,7 @@ texture = ExtResource("2_ohpbn")
 13:5/size_in_atlas = Vector2i(2, 1)
 13:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i32nc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8c737"]
 texture = ExtResource("2_fltcu")
 4:19/size_in_atlas = Vector2i(2, 3)
 4:19/0 = 0
@@ -159,7 +159,7 @@ texture = ExtResource("2_fltcu")
 5:5/size_in_atlas = Vector2i(5, 6)
 5:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4vh6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_te6vb"]
 texture = ExtResource("2_4king")
 15:15/0 = 0
 15:16/0 = 0
@@ -333,7 +333,7 @@ texture = ExtResource("2_4king")
 9:0/size_in_atlas = Vector2i(3, 4)
 9:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffdsl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pmv6"]
 texture = ExtResource("4_vehki")
 texture_region_size = Vector2i(24, 24)
 0:0/size_in_atlas = Vector2i(4, 4)
@@ -434,10 +434,10 @@ texture_region_size = Vector2i(24, 24)
 
 [sub_resource type="TileSet" id="TileSet_5apvq"]
 physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_p4vh6")
-sources/1 = SubResource("TileSetAtlasSource_i32nc")
-sources/4 = SubResource("TileSetAtlasSource_ffdsl")
-sources/0 = SubResource("TileSetAtlasSource_dinnc")
+sources/2 = SubResource("TileSetAtlasSource_te6vb")
+sources/1 = SubResource("TileSetAtlasSource_8c737")
+sources/4 = SubResource("TileSetAtlasSource_8pmv6")
+sources/0 = SubResource("TileSetAtlasSource_8g65p")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4w4gj"]
 

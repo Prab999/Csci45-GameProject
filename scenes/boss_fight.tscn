@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlms3abspfwgk"]
+
+[ext_resource type="PackedScene" uid="uid://vtb0ph2qh8rh" path="res://scenes/player.tscn" id="1_x1pee"]
+[ext_resource type="PackedScene" uid="uid://dp6b75atnq0e8" path="res://scenes/Evil-Wizard.tscn" id="2_l1auy"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0clul"]
+distance = -1.0
+
+[node name="Boss-fight" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_x1pee")]
+position = Vector2(20, -25)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-4, 0)
+zoom = Vector2(8, 8)
+limit_left = -136
+limit_bottom = 80
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(23, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0clul")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_l1auy")]
+position = Vector2(122, -54)
