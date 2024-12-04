@@ -1,9 +1,9 @@
 extends State
-class_name IdleState
+class_name ChaseState
 
 
 func _ready():
 	pass
 
 func idle():
-	animation.play("Idle")
+	animation.play("Run")
