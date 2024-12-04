@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cwiijc86kyhr2" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_CrouchWalk.png" id="5_7nely"]
 [ext_resource type="Texture2D" uid="uid://be1ha5bsi82mj" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Run.png" id="7_nk17h"]
 [ext_resource type="Texture2D" uid="uid://c60xqk73udepb" path="res://assets/Knight-Colour2/Outline/120x80_PNGSheets/_Jump.png" id="8_jkkxx"]
+[ext_resource type="Shape2D" uid="uid://cx804jo1hq062" path="res://resources/knight_standing_cshape.tres" id="11_isqsq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y22d2"]
 atlas = ExtResource("2_t4fb4")
@@ -444,10 +445,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ydx7w"]
-radius = 8.0
-height = 34.0
-
 [node name="player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -456,10 +453,9 @@ script = ExtResource("1_w0bat")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -20)
 sprite_frames = SubResource("SpriteFrames_oyk45")
-animation = &"crouch"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 2)
-shape = SubResource("CapsuleShape2D_ydx7w")
+position = Vector2(-2, 2)
+shape = ExtResource("11_isqsq")

@@ -1,10 +1,15 @@
 extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var cshape = $CollisionShape2D
 
 var is_crouching = false
 
-const SPEED = 130.0
+var standing_cshape = preload("res://resources/knight_standing_cshape.tres")
+var crouching_cshape = preload("res://resources/knight_crouching_cshape.tres")
+
+
+var SPEED = 130.0
 const jump_power = -300.0
 
 var gravity = 900
@@ -71,8 +76,15 @@ func crouch():
 	if is_crouching:
 		return
 	is_crouching = true
+	cshape.shape = crouching_cshape
+	cshape.position.y = 7
+	if is_on_floor():
+		SPEED = 50
 
 func stand():
 	if is_crouching == false:
 		return
 	is_crouching = false
+	cshape.shape = standing_cshape
+	cshape.position.y = 2
+	SPEED = 130
