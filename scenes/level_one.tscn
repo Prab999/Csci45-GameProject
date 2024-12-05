@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bimy82k1v7aon"]
+[gd_scene load_steps=30 format=3 uid="uid://bimy82k1v7aon"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6x0cb"]
 [ext_resource type="PackedScene" uid="uid://vtb0ph2qh8rh" path="res://scenes/player.tscn" id="1_ya4mq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cqre008f4qlao" path="res://assets/Clouds/Clouds 8/1.png" id="10_17myx"]
 [ext_resource type="Texture2D" uid="uid://bonic4m1cygce" path="res://assets/Clouds/Clouds 8/2.png" id="11_gecsm"]
 [ext_resource type="Texture2D" uid="uid://vh4l2xy4sstm" path="res://assets/Clouds/Clouds 8/4.png" id="12_63wx0"]
+[ext_resource type="FontFile" uid="uid://i88ftgdarfdm" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="13_lw3vk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjmk6"]
 texture = ExtResource("2_ahc4y")
@@ -454,6 +455,21 @@ sources/3 = SubResource("TileSetAtlasSource_ess6c")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7pgy"]
 
+[sub_resource type="Animation" id="Animation_k3jsb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(222, -106)]
+}
+
 [sub_resource type="Animation" id="Animation_u4wtw"]
 resource_name = "move"
 length = 4.0
@@ -471,7 +487,13 @@ tracks/0/keys = {
 "values": [Vector2(222, -106), Vector2(222, -106), Vector2(534, -268), Vector2(534, -268)]
 }
 
-[sub_resource type="Animation" id="Animation_k3jsb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aihc2"]
+_data = {
+"RESET": SubResource("Animation_k3jsb"),
+"move": SubResource("Animation_u4wtw")
+}
+
+[sub_resource type="Animation" id="Animation_xk5jb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -483,13 +505,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(222, -106)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aihc2"]
-_data = {
-"RESET": SubResource("Animation_k3jsb"),
-"move": SubResource("Animation_u4wtw")
+"values": [Vector2(909, -349)]
 }
 
 [sub_resource type="Animation" id="Animation_fwi20"]
@@ -508,7 +524,13 @@ tracks/0/keys = {
 "values": [Vector2(909, -349), Vector2(1006, -349)]
 }
 
-[sub_resource type="Animation" id="Animation_xk5jb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha1td"]
+_data = {
+"RESET": SubResource("Animation_xk5jb"),
+"move": SubResource("Animation_fwi20")
+}
+
+[sub_resource type="Animation" id="Animation_62xkj"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -520,13 +542,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(909, -349)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha1td"]
-_data = {
-"RESET": SubResource("Animation_xk5jb"),
-"move": SubResource("Animation_fwi20")
+"values": [Vector2(1068, -349)]
 }
 
 [sub_resource type="Animation" id="Animation_p55ba"]
@@ -546,21 +562,6 @@ tracks/0/keys = {
 "values": [Vector2(1197, -349), Vector2(1068, -349)]
 }
 
-[sub_resource type="Animation" id="Animation_62xkj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1068, -349)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oug6w"]
 _data = {
 "RESET": SubResource("Animation_62xkj"),
@@ -574,7 +575,7 @@ unique_name_in_owner = true
 script = ExtResource("1_6x0cb")
 
 [node name="player" parent="." instance=ExtResource("1_ya4mq")]
-position = Vector2(-67, -79)
+position = Vector2(-120, -39)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-3, 0)
@@ -672,3 +673,15 @@ texture = ExtResource("11_gecsm")
 position = Vector2(1.80313, -66.9949)
 scale = Vector2(0.993546, 0.629096)
 texture = ExtResource("12_63wx0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -89.0
+offset_top = -84.0
+offset_right = 57.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_lw3vk")
+theme_override_font_sizes/font_size = 8
+text = "Collect all the Coins
+
+"
