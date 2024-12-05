@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlfxg082nilpv"]
+[gd_scene load_steps=39 format=3 uid="uid://dlfxg082nilpv"]
 
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_d0rwl"]
 [ext_resource type="PackedScene" uid="uid://vtb0ph2qh8rh" path="res://scenes/player.tscn" id="1_pgb6y"]
 [ext_resource type="Texture2D" uid="uid://7b24ay6022c3" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_gdp7t"]
 [ext_resource type="Texture2D" uid="uid://we0y42mx2dc5" path="res://assets/graveyard/Tiles.png" id="3_kfv7i"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cgbf40218lwmk" path="res://scenes/platform_default.tscn" id="7_rn84s"]
 [ext_resource type="Texture2D" uid="uid://cexrrcwqspw87" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="8_xxc4n"]
 [ext_resource type="FontFile" uid="uid://i88ftgdarfdm" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="9_ycgne"]
+[ext_resource type="Texture2D" uid="uid://d4mvytwccija0" path="res://assets/brackeys_platformer_assets/sprites/coin.png" id="11_sojs6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytjq1"]
 texture = ExtResource("2_gdp7t")
@@ -521,10 +523,106 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0x846"]
 distance = -30.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7umv"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eni55"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_553yu"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0s2a"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crtu3"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiqhe"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko26w"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0jnl"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eup7l"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwgxe"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x8bw"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egatp"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73dlj"]
+atlas = ExtResource("11_sojs6")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62h7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eni55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_553yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0s2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crtu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiqhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko26w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0jnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eup7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwgxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x8bw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egatp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73dlj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_d0rwl")
 
 [node name="player" parent="." instance=ExtResource("1_pgb6y")]
-position = Vector2(28, -50)
+position = Vector2(856, -262)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-4, 0)
@@ -651,3 +749,19 @@ text = "You can also slide
 against a wall, which
 also gives you an
 additional jump"
+
+[node name="tempCoin" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tempCoin"]
+position = Vector2(932, -209)
+shape = SubResource("CircleShape2D_u7umv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="tempCoin"]
+position = Vector2(932, -209)
+sprite_frames = SubResource("SpriteFrames_62h7e")
+autoplay = "default"
+frame = 10
+frame_progress = 0.633896
+
+[connection signal="body_entered" from="tempCoin" to="." method="_on_temp_coin_body_entered"]

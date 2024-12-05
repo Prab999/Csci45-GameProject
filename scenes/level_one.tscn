@@ -1,13 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://bimy82k1v7aon"]
+[gd_scene load_steps=29 format=3 uid="uid://bimy82k1v7aon"]
 
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_6x0cb"]
 [ext_resource type="PackedScene" uid="uid://vtb0ph2qh8rh" path="res://scenes/player.tscn" id="1_ya4mq"]
 [ext_resource type="Texture2D" uid="uid://7b24ay6022c3" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_ahc4y"]
 [ext_resource type="Texture2D" uid="uid://we0y42mx2dc5" path="res://assets/graveyard/Tiles.png" id="3_j724q"]
 [ext_resource type="Texture2D" uid="uid://xpy4w0mw1pej" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="4_uda5u"]
 [ext_resource type="Texture2D" uid="uid://cmxdn4oicfnhc" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="5_idcc2"]
 [ext_resource type="PackedScene" uid="uid://cgbf40218lwmk" path="res://scenes/platform_default.tscn" id="6_0nsah"]
+[ext_resource type="PackedScene" uid="uid://c1iisv4ixv1ki" path="res://scenes/coin.tscn" id="7_fylkp"]
+[ext_resource type="PackedScene" uid="uid://dbocm066iksnx" path="res://scenes/kill_zone.tscn" id="8_fg2jp"]
+[ext_resource type="Texture2D" uid="uid://cqre008f4qlao" path="res://assets/Clouds/Clouds 8/1.png" id="10_17myx"]
+[ext_resource type="Texture2D" uid="uid://bonic4m1cygce" path="res://assets/Clouds/Clouds 8/2.png" id="11_gecsm"]
+[ext_resource type="Texture2D" uid="uid://vh4l2xy4sstm" path="res://assets/Clouds/Clouds 8/4.png" id="12_63wx0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1mnf4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjmk6"]
 texture = ExtResource("2_ahc4y")
 17:13/size_in_atlas = Vector2i(8, 10)
 17:13/0 = 0
@@ -113,7 +119,7 @@ texture = ExtResource("2_ahc4y")
 20:7/size_in_atlas = Vector2i(1, 2)
 20:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhlp1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk63l"]
 texture = ExtResource("3_j724q")
 4:19/size_in_atlas = Vector2i(2, 3)
 4:19/0 = 0
@@ -158,7 +164,7 @@ texture = ExtResource("3_j724q")
 5:5/size_in_atlas = Vector2i(5, 6)
 5:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvoob"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7p7at"]
 texture = ExtResource("4_uda5u")
 15:15/0 = 0
 15:16/0 = 0
@@ -332,7 +338,14 @@ texture = ExtResource("4_uda5u")
 9:0/size_in_atlas = Vector2i(3, 4)
 9:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1d1il"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ess6c"]
+texture = ExtResource("12_63wx0")
+5:2/size_in_atlas = Vector2i(15, 9)
+5:2/0 = 0
+1:11/size_in_atlas = Vector2i(7, 4)
+1:11/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x260u"]
 texture = ExtResource("5_idcc2")
 texture_region_size = Vector2i(24, 24)
 0:0/size_in_atlas = Vector2i(4, 4)
@@ -433,10 +446,13 @@ texture_region_size = Vector2i(24, 24)
 
 [sub_resource type="TileSet" id="TileSet_1n5oq"]
 physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_rvoob")
-sources/1 = SubResource("TileSetAtlasSource_bhlp1")
-sources/4 = SubResource("TileSetAtlasSource_1d1il")
-sources/0 = SubResource("TileSetAtlasSource_1mnf4")
+sources/2 = SubResource("TileSetAtlasSource_7p7at")
+sources/1 = SubResource("TileSetAtlasSource_fk63l")
+sources/4 = SubResource("TileSetAtlasSource_x260u")
+sources/0 = SubResource("TileSetAtlasSource_pjmk6")
+sources/3 = SubResource("TileSetAtlasSource_ess6c")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7pgy"]
 
 [sub_resource type="Animation" id="Animation_u4wtw"]
 resource_name = "move"
@@ -553,8 +569,12 @@ _data = {
 
 [node name="LevelOne" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_6x0cb")
+
 [node name="player" parent="." instance=ExtResource("1_ya4mq")]
-position = Vector2(1310, -421)
+position = Vector2(-67, -79)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-3, 0)
@@ -569,42 +589,86 @@ position = Vector2(-43, 6)
 tile_set = SubResource("TileSet_1n5oq")
 format = 2
 layer_0/name = "BackgroundL"
-layer_0/tile_data = PackedInt32Array(-196617, 393216, 3, -196616, 393216, 3, -196614, 393216, 3, -262149, 458752, 4, -196613, 393216, 4, -65541, 327680, 3, -65542, 524288, 0, -65545, 524288, 0, -327687, 524288, 0, -327690, 524288, 0, -327685, 327680, 3, -262148, 524288, 6, -65540, 524288, 6, -327684, 524288, 6, -1048539, 2, 0, -1048535, 2, 0, -1179604, 327682, 0, -1245138, 327682, 0, -1310672, 327682, 0, -1376206, 327682, 0, -1048531, 2, 0, -1048528, 2, 0, -1114062, 2, 0, -1179596, 2, 0, -1310668, 2, 0, -1441708, 1048577, 1, -1507241, 1048577, 1, -1703846, 655361, 18)
+layer_0/tile_data = PackedInt32Array(-196617, 393216, 3, -196616, 393216, 3, -196614, 393216, 3, -262149, 458752, 4, -196613, 393216, 4, -65541, 327680, 3, -65542, 524288, 0, -65545, 524288, 0, -327687, 524288, 0, -327690, 524288, 0, -327685, 327680, 3, -262148, 524288, 6, -65540, 524288, 6, -327684, 524288, 6, -1048539, 2, 0, -1048535, 2, 0, -1179604, 327682, 0, -1245138, 327682, 0, -1310672, 327682, 0, -1376206, 327682, 0, -1048531, 2, 0, -1048528, 2, 0, -1114062, 2, 0, -1179596, 2, 0, -1310668, 2, 0, -1441708, 1048577, 1, -1507241, 1048577, 1, -1703846, 655361, 18, -2949031, 327683, 2, -3342261, 65539, 11, -3145664, 65539, 11, -2162621, 65539, 11, -2621338, 65539, 11)
 layer_1/name = "Layer0"
-layer_1/tile_data = PackedInt32Array(131065, 2, 0, 131069, 2, 0, 65537, 2, 0, 65540, 2, 0, 65544, 2, 0, 131063, 2, 0, -65544, 1376256, 7, -327688, 1310720, 7, -327690, 1310720, 7, -524293, 983040, 0, -524292, 983040, 0, -524295, 983040, 0, -524298, 983040, 0, -327686, 1310720, 7, -131069, 655362, 10, -1376177, 2, 0, -1376173, 2, 0, -1376169, 2, 0, -1376165, 2, 0, -1834914, 393217, 19, -2162605, 393217, 19, -2228143, 524289, 19, -2293681, 524289, 19, -2293683, 393217, 19, -2293685, 393217, 19, -2424757, 655361, 18, -2293687, 393217, 19, -2293689, 393217, 19, -2424761, 655361, 18, -2555833, 655361, 18, -2490288, 393217, 19, -2752437, 655361, 18, -2752447, 655362, 10, -2621380, 2, 0, -2621384, 2, 0, -2162598, 393217, 19, -2162602, 393217, 19, -1900447, 393217, 19, -1900442, 2, 0, -2031511, 327682, 0, -2097045, 327682, 0, -2031507, 2, 0, -2359191, 393217, 19, -2162580, 655361, 18, -2359196, 393217, 19, -2293665, 393217, 19)
+layer_1/tile_data = PackedInt32Array(131065, 2, 0, 131069, 2, 0, 65537, 2, 0, 65540, 2, 0, 65544, 2, 0, 131063, 2, 0, -65544, 1376256, 7, -327688, 1310720, 7, -327690, 1310720, 7, -524293, 983040, 0, -524292, 983040, 0, -524295, 983040, 0, -524298, 983040, 0, -327686, 1310720, 7, -131069, 655362, 10, -1376177, 2, 0, -1376173, 2, 0, -1376169, 2, 0, -1376165, 2, 0, -1834914, 393217, 19, -2162605, 393217, 19, -2228143, 524289, 19, -2293681, 524289, 19, -2293683, 393217, 19, -2293685, 393217, 19, -2424757, 655361, 18, -2293687, 393217, 19, -2293689, 393217, 19, -2424761, 655361, 18, -2555833, 655361, 18, -2490288, 393217, 19, -2752437, 655361, 18, -2752447, 655362, 10, -2621380, 2, 0, -2621384, 2, 0, -2162598, 393217, 19, -2162602, 393217, 19, -1900447, 393217, 19, -1900442, 2, 0, -2031511, 327682, 0, -2097045, 327682, 0, -2031507, 2, 0, -2359191, 393217, 19, -2162580, 655361, 18, -2359196, 393217, 19, -2293665, 393217, 19, -1310666, 2, 0)
 
-[node name="platform default" parent="." instance=ExtResource("6_0nsah")]
+[node name="KillZone" parent="." instance=ExtResource("8_fg2jp")]
+position = Vector2(64, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("WorldBoundaryShape2D_d7pgy")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("7_fylkp")]
+position = Vector2(150, -133)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("7_fylkp")]
+position = Vector2(555, -309)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("7_fylkp")]
+position = Vector2(1212, -386)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("7_fylkp")]
+position = Vector2(1579, -517)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("7_fylkp")]
+position = Vector2(1232, -668)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("7_fylkp")]
+position = Vector2(834, -697)
+
+[node name="platforms" type="Node" parent="."]
+
+[node name="platform default" parent="platforms" instance=ExtResource("6_0nsah")]
 position = Vector2(114, -60)
 
-[node name="platform default5" parent="." instance=ExtResource("6_0nsah")]
+[node name="platform default5" parent="platforms" instance=ExtResource("6_0nsah")]
 position = Vector2(1122, -660)
 
-[node name="platform default3" parent="." instance=ExtResource("6_0nsah")]
+[node name="platform default3" parent="platforms" instance=ExtResource("6_0nsah")]
 position = Vector2(166, -90)
 
-[node name="platform default6" parent="." instance=ExtResource("6_0nsah")]
+[node name="platform default6" parent="platforms" instance=ExtResource("6_0nsah")]
 position = Vector2(222, -106)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platform default6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform default6"]
 libraries = {
 "": SubResource("AnimationLibrary_aihc2")
 }
 autoplay = "move"
 
-[node name="platform default2" parent="." instance=ExtResource("6_0nsah")]
+[node name="platform default2" parent="platforms" instance=ExtResource("6_0nsah")]
 position = Vector2(909, -349)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platform default2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform default2"]
 libraries = {
 "": SubResource("AnimationLibrary_ha1td")
 }
 autoplay = "move"
 
-[node name="platform default4" parent="." instance=ExtResource("6_0nsah")]
+[node name="platform default4" parent="platforms" instance=ExtResource("6_0nsah")]
 position = Vector2(1068, -349)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platform default4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform default4"]
 libraries = {
 "": SubResource("AnimationLibrary_oug6w")
 }
 autoplay = "move"
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(849.4, -478.761)
+scale = Vector2(3.80417, 3.84715)
+texture = ExtResource("10_17myx")
+
+[node name="2" type="Sprite2D" parent="Background"]
+position = Vector2(4.35527, 24.1547)
+scale = Vector2(0.987767, 0.844287)
+texture = ExtResource("11_gecsm")
+
+[node name="4" type="Sprite2D" parent="Background"]
+position = Vector2(1.80313, -66.9949)
+scale = Vector2(0.993546, 0.629096)
+texture = ExtResource("12_63wx0")
