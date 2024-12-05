@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://jqp6acfof8er"]
+
+[ext_resource type="Script" path="res://scripts/start_button.gd" id="1_l6d6p"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 215.0
+offset_right = 949.0
+offset_bottom = 351.0
+text = "Play"
+script = ExtResource("1_l6d6p")
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 392.0
+offset_right = 955.0
+offset_bottom = 519.0
+text = "Quit"
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="StartButton" method="_on_quit_pressed"]

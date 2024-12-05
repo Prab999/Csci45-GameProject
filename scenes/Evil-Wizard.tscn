@@ -322,13 +322,13 @@ _data = {
 size = Vector2(18, 37)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vx6bj"]
-radius = 353.239
+radius = 231.175
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk5ua"]
 radius = 34.0588
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2ind1"]
-radius = 197.294
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuylc"]
+radius = 130.384
 
 [node name="Golem" type="CharacterBody2D"]
 script = ExtResource("1_8b73f")
@@ -349,6 +349,7 @@ position = Vector2(1, -19.5)
 shape = SubResource("RectangleShape2D_rvfn3")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(0, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_vx6bj")
@@ -362,7 +363,8 @@ shape = SubResource("CircleShape2D_sk5ua")
 [node name="ShootPlayerDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootPlayerDetector"]
-shape = SubResource("CircleShape2D_2ind1")
+position = Vector2(-1, -20)
+shape = SubResource("CircleShape2D_tuylc")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

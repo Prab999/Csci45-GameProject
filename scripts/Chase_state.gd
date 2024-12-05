@@ -8,7 +8,6 @@ func _ready():
 
 
 
-
 func _physics_process(delta):
 	if has_node ("../../player"):
 		var Golem = get_parent()

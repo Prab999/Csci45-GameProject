@@ -1,16 +1,16 @@
 [gd_scene load_steps=22 format=3 uid="uid://dlfxg082nilpv"]
 
-[ext_resource type="PackedScene" uid="uid://vtb0ph2qh8rh" path="res://scenes/player.tscn" id="1_fy85f"]
-[ext_resource type="Texture2D" uid="uid://xpy4w0mw1pej" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_4king"]
-[ext_resource type="Texture2D" uid="uid://we0y42mx2dc5" path="res://assets/graveyard/Tiles.png" id="2_fltcu"]
-[ext_resource type="Texture2D" uid="uid://7b24ay6022c3" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_ohpbn"]
-[ext_resource type="PackedScene" uid="uid://dbocm066iksnx" path="res://scenes/kill_zone.tscn" id="2_uem42"]
-[ext_resource type="Texture2D" uid="uid://cmxdn4oicfnhc" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="4_vehki"]
-[ext_resource type="PackedScene" uid="uid://cgbf40218lwmk" path="res://scenes/platform_default.tscn" id="5_j54cv"]
-[ext_resource type="Texture2D" uid="uid://cexrrcwqspw87" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="7_ndgqt"]
+[ext_resource type="PackedScene" uid="uid://vtb0ph2qh8rh" path="res://scenes/player.tscn" id="1_pgb6y"]
+[ext_resource type="Texture2D" uid="uid://7b24ay6022c3" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_gdp7t"]
+[ext_resource type="Texture2D" uid="uid://we0y42mx2dc5" path="res://assets/graveyard/Tiles.png" id="3_kfv7i"]
+[ext_resource type="Texture2D" uid="uid://xpy4w0mw1pej" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="4_c1hb5"]
+[ext_resource type="Texture2D" uid="uid://cmxdn4oicfnhc" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="5_urxvi"]
+[ext_resource type="PackedScene" uid="uid://dbocm066iksnx" path="res://scenes/kill_zone.tscn" id="6_su83e"]
+[ext_resource type="PackedScene" uid="uid://cgbf40218lwmk" path="res://scenes/platform_default.tscn" id="7_rn84s"]
+[ext_resource type="Texture2D" uid="uid://cexrrcwqspw87" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="8_xxc4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8g65p"]
-texture = ExtResource("2_ohpbn")
+texture = ExtResource("2_gdp7t")
 17:13/size_in_atlas = Vector2i(8, 10)
 17:13/0 = 0
 0:0/size_in_atlas = Vector2i(5, 5)
@@ -115,7 +115,7 @@ texture = ExtResource("2_ohpbn")
 13:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8c737"]
-texture = ExtResource("2_fltcu")
+texture = ExtResource("3_kfv7i")
 4:19/size_in_atlas = Vector2i(2, 3)
 4:19/0 = 0
 4:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.6062, 0.249718, 16.3565, -14.2339, 16.1068, 10.7379, -15.8571, 24.7221)
@@ -160,7 +160,7 @@ texture = ExtResource("2_fltcu")
 5:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_te6vb"]
-texture = ExtResource("2_4king")
+texture = ExtResource("4_c1hb5")
 15:15/0 = 0
 15:16/0 = 0
 16:17/0 = 0
@@ -334,7 +334,7 @@ texture = ExtResource("2_4king")
 9:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pmv6"]
-texture = ExtResource("4_vehki")
+texture = ExtResource("5_urxvi")
 texture_region_size = Vector2i(24, 24)
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
@@ -522,7 +522,7 @@ distance = -30.0
 
 [node name="Game" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_fy85f")]
+[node name="player" parent="." instance=ExtResource("1_pgb6y")]
 position = Vector2(28, -50)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -541,7 +541,7 @@ layer_0/tile_data = PackedInt32Array(-589833, 131072, 13, -524298, 131072, 13, -
 layer_1/name = "Layer0"
 layer_1/tile_data = PackedInt32Array(65537, 2, 0, 65551, 2, 17, 18, 393218, 18, 12, 393218, 18, 65545, 2, 17, 65557, 2, 17, 65553, 393218, 20, 65554, 393218, 20, 65555, 393218, 20, 131091, 393218, 20, 131090, 393218, 20, 131089, 393218, 20, 65547, 458754, 20, 65548, 458754, 20, 65549, 458754, 20, 131085, 458754, 20, 131084, 458754, 20, 131083, 458754, 20, 196619, 458754, 20, 196620, 458754, 20, 196621, 458754, 20, 65560, 2, 17, -131049, 327682, 21, -65510, 393218, 10, 65562, 393218, 10, 196634, 393218, 10, 15, 393218, 10, 21, 393218, 10, -65507, 2, 0, -65504, 2, 0, -65501, 2, 0, -65498, 2, 0, -786394, 262145, 15, -655321, 655361, 18, -524249, 655361, 18, -327641, 1048577, 1, -786404, 262145, 15, -720842, 2, 0, -720839, 2, 0, -327651, 1048577, 1, -393184, 655362, 10, -65532, 327682, 0, -131066, 327682, 0, 131065, 2, 5, 131062, 2, 5, 131069, 2, 5, -655331, 655361, 18, -65527, 2, 0, -65528, 2, 0)
 
-[node name="KillZone" parent="." instance=ExtResource("2_uem42")]
+[node name="KillZone" parent="." instance=ExtResource("6_su83e")]
 position = Vector2(0, 93)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
@@ -549,10 +549,10 @@ shape = SubResource("WorldBoundaryShape2D_4w4gj")
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="platform default" parent="Platforms" instance=ExtResource("5_j54cv")]
+[node name="platform default" parent="Platforms" instance=ExtResource("7_rn84s")]
 position = Vector2(385, -76)
 
-[node name="platform default2" parent="Platforms" instance=ExtResource("5_j54cv")]
+[node name="platform default2" parent="Platforms" instance=ExtResource("7_rn84s")]
 position = Vector2(694, -175)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platform default2"]
@@ -561,7 +561,7 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="platform default3" parent="Platforms" instance=ExtResource("5_j54cv")]
+[node name="platform default3" parent="Platforms" instance=ExtResource("7_rn84s")]
 position = Vector2(540, -105)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platform default3"]
@@ -574,7 +574,7 @@ autoplay = "up&down"
 show_behind_parent = true
 position = Vector2(446.5, -143.5)
 scale = Vector2(2.81042, 2.79779)
-texture = ExtResource("7_ndgqt")
+texture = ExtResource("8_xxc4n")
 
 [node name="worldBoundry-left" type="StaticBody2D" parent="."]
 

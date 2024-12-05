@@ -2,8 +2,7 @@ extends State
 class_name AttackState
 
 func _ready():
-	var anim = get_node("../AnimationPLayer")
-	#anim.connect("animation_finished", _on_animation_finised)
+	var anim = get_node("../AnimationPlayer")
 	anim.animation_finished.connect(Callable(self, "_on_animation_finished"))
 	Shoot()
 
