@@ -473,6 +473,7 @@ limit_top = 0
 limit_right = 1154
 limit_bottom = 745
 limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="1" type="Sprite2D" parent="."]
 show_behind_parent = true

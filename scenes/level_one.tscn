@@ -615,7 +615,7 @@ position = Vector2(1212, -386)
 position = Vector2(1579, -517)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("7_fylkp")]
-position = Vector2(1232, -668)
+position = Vector2(1228, -647)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("7_fylkp")]
 position = Vector2(834, -697)
@@ -660,7 +660,7 @@ autoplay = "move"
 
 [node name="Background" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(849.4, -478.761)
+position = Vector2(847, -486)
 scale = Vector2(3.80417, 3.84715)
 texture = ExtResource("10_17myx")
 
