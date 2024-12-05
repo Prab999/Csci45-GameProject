@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var cshape = $CollisionShape2D
+@onready var wallslide_raycast: RayCast2D = $"wallslide-raycast"
+@onready var wallslide_raycast_2: RayCast2D = $"wallslide-raycast2"
+
+
 
 var is_crouching = false
 
@@ -13,6 +17,7 @@ var SPEED = 130.0
 const jump_power = -300.0
 
 var gravity = 900
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -67,6 +72,24 @@ func handle_movement_animation(direction):
 				animated_sprite.play("jump")
 			elif velocity.y > 0:
 				animated_sprite.play("crouch")
+
+		if wallslide_raycast_2.is_colliding():
+			animated_sprite.play("WallSlide")
+			velocity.y = velocity.y * .5
+			if Input.is_action_just_pressed("jump"):
+				!wallslide_raycast_2.is_colliding()
+				velocity.y = jump_power
+				animated_sprite.play("jump")
+		elif wallslide_raycast.is_colliding():
+			animated_sprite.play("WallSlide")
+			velocity.y = velocity.y * .5
+			if Input.is_action_just_pressed("jump"):
+				!wallslide_raycast.is_colliding()
+				velocity.y = jump_power
+				animated_sprite.play("jump")
+
+		elif !wallslide_raycast_2.is_colliding() and !wallslide_raycast.is_colliding():
+			return
 		
 func toggle_flip_sprite(direction):
 	if direction == 1:
