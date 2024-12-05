@@ -2,7 +2,6 @@ extends Node2D
 class_name State
 
 
-
 var change_state
 var animation
 var persistent_state

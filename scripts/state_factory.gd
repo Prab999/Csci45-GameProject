@@ -5,7 +5,7 @@ var states
 func _init():
 	states = {
 		"idle": IdleState,
-		"chase": ChaseState
+		"chase": ChaseState,
 		"attack": AttackState
 	}
 	

@@ -3,7 +3,12 @@ class_name IdleState
 
 
 func _ready():
-	pass
+	get_parent().velocity.x = 0
+	idle()
 
 func idle():
 	animation.play("Idle")
+ 
+
+func exit():
+	print("Exiting Idle state")

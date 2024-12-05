@@ -10,6 +10,7 @@ distance = -1.0
 
 [node name="player" parent="." instance=ExtResource("1_x1pee")]
 position = Vector2(20, -25)
+collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-4, 0)
@@ -25,5 +26,5 @@ position = Vector2(23, 4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_0clul")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_l1auy")]
-position = Vector2(122, -54)
+[node name="Golem" parent="." instance=ExtResource("2_l1auy")]
+position = Vector2(89, 1)
